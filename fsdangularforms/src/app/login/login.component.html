@@ -1,0 +1,22 @@
+<div class="container">
+    <div class="card mt-5  ">
+        <div class="card-header ">
+        <h5>Login</h5> 
+        </div>
+        <div class="card-body">
+            <form #userlogin="ngForm" (ngSubmit)="buttonclicked()">
+                <div class="mb-3">
+                    <label for="exampleInputEmail1" class="form-label">Email address</label>
+                    <input type="email" #email="ngModel" [class.is-invalid]="email.invalid && email.touched" name="email" [(ngModel)] ="registeredUser.email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp " required >
+                      <small class="text-danger" [class.d-none]="email.valid || email.touched">Enter a valid email</small>
+                </div>
+                <div class="mb-3">
+                    <label for="exampleInputPassword1" class="form-label">Password</label>
+                    <input type="password" [class.is-valid]="password.invalid && password.touched" name="password" #password="ngModel" [(ngModel)] = "registeredUser.password" class="form-control" id="exampleInputPassword1" required minlength="6">
+                       <small class="text-danger" [class.d-none]="password.valid || password.touched">Enter a valid password</small>
+                </div>
+                <button type="submit" [disabled]="userlogin.form.invalid" class="btn btn-primary" >Submit</button>
+            </form>
+        </div>
+    </div>
+    </div>
